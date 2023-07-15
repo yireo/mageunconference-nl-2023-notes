@@ -192,7 +192,7 @@ Everything running on a small max cluster instance.
 - PowerLevel10K ZSH Theme
 - ZSH ah my zshell 
 - Fish shell
-- When you forgot to use screen: press Ctrl-Z
+- When you forgot to use screen: press Ctrl-Z; then run `disown`
 - Htop can pause and unpause processes
 - 'Pkill -f' to kill a process based on the whole command line
 - Commandlinefu.com 
