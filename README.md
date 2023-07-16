@@ -137,7 +137,7 @@ Shopify and other SAAS
 - You can Scaffold to build Docker containers and push them into Kubernetes
 - In PhpStorm you can commit a config with configuration for PhpStan etc
 
-# Notes by Francic Gallagher
+# Notes by Francis Gallagher
 This was the service I mentioned: https://noibu.com/
 
 Just dont put faith in their loss calculations. 
@@ -147,6 +147,12 @@ Secondly mentioned was the issue about the core problem that can stop high traff
 Problem: https://github.com/magento/magento2/issues/33386
 
 Helpful module:  https://github.com/pykettk/module-indexer-deploy-config (Not a fix, just helps ensure indexes go back to how you want them)
+
+Just as it came up again. If you hit this and just want to get by it have a look at vendor/magento/module-indexer/Setup/Recurring.php near the end the unsub/sub line on
+
+https://github.com/magento/magento2/blob/2.4-develop/app/code/Magento/Indexer/Setup/Recurring.php#L124
+
+How you stop that is up to you, you can just temporarily comment it out but you must understand what it does first so you know why and when you can't get away with it.
 
 # Notes by Nils Preuss
 https://mageless.maxcluster-demo.netz98.org/ this is the demo of mageless I promised the people in the mageless talk yesterday. As it is something brought up tonight it could be not fully correctly working. Afaik filters are the only thing broken currently there.
@@ -192,7 +198,7 @@ Everything running on a small max cluster instance.
 - PowerLevel10K ZSH Theme
 - ZSH ah my zshell 
 - Fish shell
-- When you forgot to use screen: press Ctrl-Z
+- When you forgot to use screen: press Ctrl-Z; then run `disown`
 - Htop can pause and unpause processes
 - 'Pkill -f' to kill a process based on the whole command line
 - Commandlinefu.com 
@@ -243,13 +249,6 @@ Rector can refactor code to match a newer PHP version
 
 use this installer to get nix: 
 https://github.com/DeterminateSystems/nix-installer
-
-# Notes by Francis Gallagher
-Just as it came up again. If you hit this and just want to get by it have a look at vendor/magento/module-indexer/Setup/Recurring.php near the end the unsub/sub line on
-
-https://github.com/magento/magento2/blob/2.4-develop/app/code/Magento/Indexer/Setup/Recurring.php#L124
-
-How you stop that is up to you, you can just temporarily comment it out but you must understand what it does first so you know why and when you can't get away with it.
 
 # Notes by Jelle Siderius
 https://github.com/jellesiderius/mage-db-sync
