@@ -276,3 +276,30 @@ and to the words...
 
 "hello!" becomes "ei!"
 "would you like to have a fight?" becomes "ee! ee! ee! ee! joe! autjsjeidj nau!!"
+
+# Session: Proconcloud method
+**Notes by Peter Stuifzand**
+
+- Proconcloud method is a decision making method.
+- It's based on parts of Theory of Constraints (Change Matrix).
+- It helps to avoid 5 decision mistakes:
+  - Waste your limited attention
+    - by checking if the problem is important
+  - Jumping to a solution (or blaming other people)
+    - By finding pros and cons for both sides: changin and not changin
+    - And also, by writing the conflict for the other people, who could be yourself)
+  - Only try one solution, or use a compromise
+    - Instead you try 4 different options for a win-win solution
+  - Ignore valid reservation from stakeholders
+    - Think of the reservations stakeholders could have and improve your solutions
+    - Or ask them and let them improve your solution
+  - Not learning from experience
+    - Create an experiment, including your assumptions about the problem and solution
+    - You can run the experiment and check these assumptions to learn for the next time
+
+Youtube video explaining the steps:
+
+- [Evolution of ProConCloud from Franklin's ProConList & Goldratt's ChangeMatrix](https://www.youtube.com/watch?v=ORojFlF7VDU)
+- [How the ProConCloud method can help anyone make better faster decisions](https://www.youtube.com/watch?v=qZVgtIATINY)
+- [Success For All 2019: DrAlanBarnard Keynote - How an App can help young people make better decisions](https://www.youtube.com/watch?v=U0gtjMQELYs)
+
