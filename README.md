@@ -1,6 +1,6 @@
 # MageUnconference NL 2023 notes
 
-## Session: How to deal with Upgrades of Magento - Jeffrey - Experius | part of Happy Horizon
+## Session: How to deal with Upgrades of Magneto - Jeffrey - Experius | part of Happy Horizon
 **Notes by Jeroen Vermeulen, additional notes Luke Collymore**
 
 Why
@@ -92,7 +92,7 @@ Manual testing steps
     - Alpine X-Intersect plugin triggers when a part is in view. 
     - Alpine X-If plugin
 
-# The future of Magento - Dennis: Magento 3.0: The future of Magento
+# The future of Magento - Dennis: Magento 3.0: The future of Magneto
 **Notes by Jeroen Vermeulen**
 
 Niek Verkoelen - Vendic: What is currently the most important thing in the ecosystem in Magento
@@ -328,3 +328,46 @@ Youtube video explaining the steps:
 - [How the ProConCloud method can help anyone make better faster decisions](https://www.youtube.com/watch?v=qZVgtIATINY)
 - [Success For All 2019: DrAlanBarnard Keynote - How an App can help young people make better decisions](https://www.youtube.com/watch?v=U0gtjMQELYs)
 
+# Session: Offsite Experiences
+**Notes by Simon Sprankel**
+
+- Teambuilding ideas:
+  - Build a boat / bridge
+  - Escape room
+  - Snowboarding / skiing
+  - Hiking
+  - Cleaning up the nature / doing something for the environment
+- How often do you organise an offsite?
+  - Often once per year
+  - Some do it quarterly on a smaller (team) level, especially when working remotely
+- What do you do during the offsite?
+  - Work as usual, maybe only half of the day
+  - Improve internal processes
+  - Work on internal tools
+- Ideas
+  - Invite others for a smaller part of the event: clients, partners, befriended agencies, ...
+  - You might want to do it close to the office to make it easier for families
+  - Invite families for the last day / last dinner
+  - Share financial information during the offsite
+  - For bigger companies, make sure to actively mix people / groups, so that people not always hang out with the same people
+  - Do something different each year / let another team organise it every year
+- Advantages, especially for management:
+  - Improves creativity
+  - People might talk about general issues in an easy and relaxed way with each other
+  - Reduces stress (less sick days)
+  - Improves the team - people build relationships with their colleagues, so that they better work together
+- Frank likes Bali ;-)
+
+# Session: Local Mage-OS User Groups
+**Notes by Simon Sprankel**
+
+- FireGento kind of served as a model for Mage-OS NL
+- The dutch community pretty much fell apart, also due to the Dutchento issues
+- Mage-OS NL should revive the dutch Magento / Mage-OS / Adobe Commerce community
+- Currently, there are no dutch Magento meetups happening, but some want to plan them again
+- In Germany, local meetups are again / still happening
+- The FireGento board always wanted members to organise things, whereas members expect "the club" / the board to organise things
+- Always be open as a community
+- Non-profits like Mage-OS NL should facilitate the community
+- Non-profits like Mage-OS NL can help with organising events via marketing, communication, support, sharing experiences, ...
+- Make the community great again!
