@@ -255,7 +255,7 @@ How we do our toolkit at work
 - Derivation in Nix are a kind of package
 - Nix packages are like a repository, a collection of Derivations
 - When you share a Nix configuration you all get the exact same package, if your computer is the same architecture
-- When you use Cloudflare DNS, you can use  *.localhost  for development domains
+- When you use Cloudflare DNS, you can use  \*.localhost  for development domains
 - Only using aliases, no other shell magic
 - NixOS is a whole OS built from scratch on the Nix principles
 
