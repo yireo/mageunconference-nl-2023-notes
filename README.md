@@ -1,6 +1,6 @@
 # MageUnconference NL 2023 notes
 
-## Session: How to deal with Upgrades of Magneto - Jeffrey - Experius | part of Happy Horizon
+## Session: How to deal with Upgrades of Magento - Jeffrey - Experius | part of Happy Horizon
 **Notes by Jeroen Vermeulen, additional notes Luke Collymore**
 
 Why
@@ -92,7 +92,7 @@ Manual testing steps
     - Alpine X-Intersect plugin triggers when a part is in view. 
     - Alpine X-If plugin
 
-# The future of Magento - Dennis: Magento 3.0: The future of Magneto
+# The future of Magento - Dennis: Magento 3.0: The future of Magento
 **Notes by Jeroen Vermeulen**
 
 Niek Verkoelen - Vendic: What is currently the most important thing in the ecosystem in Magento
