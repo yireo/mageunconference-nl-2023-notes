@@ -1,14 +1,15 @@
 # MageUnconference NL 2023 notes
 
 ## Session: How to deal with Upgrades of Magneto - Jeffrey - Experius | part of Happy Horizon
-**Notes by Jeroen Vermeulen**
+**Notes by Jeroen Vermeulen, additional notes Luke Collymore**
 
 Why
-- [ ] Maintenance, a car needs it too
-- [ ] Security
-- [ ] Performance
-- [ ] Newest PHP version 
+- [ ] Essential for security, you are responsible for keeping your customers data secure
+- [ ] Do it regularly like your car's maintenance!
+- [ ] Gain performance increases from PHP, MySql etc upgrades
+- [ ] Regular smaller upgrades can cost less overall then larger multi version upgrades
 - [ ] Servers won't support older versions of software
+
 
 How - Sell / Invoice
 - [ ] Sell customers a Package of hours, do upgrades from the package
@@ -19,20 +20,44 @@ How - Sell / Invoice
 - [ ] 2.4.3 => 2.4.6 estimated 40 hours
 - [ ] Security updates 8-16 hours
 - [ ] Don't accept existing shops with a lot of legacy
+- [ ] Budget for 4 quarterly releases and at least one security patches
+- [ ] Consider creating dedicated upgrade teams
+
 
 How - Technical
 - [ ] Only security patches is an option
 - [ ] After a new release wait for P1 first
-- [ ] In composer.json put everything on * , see what happens
+- [ ] In composer.json put everything on *, see what happens
 - [ ] CI/CD bot which checks all modules of customers if they are compatible to determine impact
 - [ ] Dashboard with all modules of customers + state of compatibility
-- [ ] Use PWA (GraphQL+NextJS) te lower impact of upgrades
+- [ ] Use PWA (GraphQL+NextJS) the lower impact of upgrades
 - [ ] Share more components among customers
 - [ ] Watch out for missing authorisation keys needed to receive the latest version of a module. Especially when you did not buy the module yourself.
 - [ ] Make an inventory first, check manually for each module what the latest version is compatible with
-- [ ] Ampersand Magento2 Upgrade Patch Helper
-- [ ] OTAP Street, Internal manual testing. Work out test scenario's.
+- [ ] OTAP Street, Internal manual testing. Work out test scenario's
 - [ ] DI Compile first, Static code testing
+
+
+Problems when upgrading
+- [ ] 3rd party modules can cause problems
+- [ ] Breaking changes from tech stack PHP, ES etc upgrades
+- [ ] Customisations via bespoke modules and templates overrides
+- [ ] Consider waiting on -p1 patch release to miss initial bugs after upgrade release
+
+
+Automated testing tools
+ - [ ] [Ampersand Upgrade Helper - (step 1)](https://github.com/AmpersandHQ/ampersand-magento2-upgrade-patch-helper)
+ - [ ] [Elgentos Upgrade GUI - (step 2)](https://github.com/elgentos/magento2-upgrade-gui)
+ - [ ] [Rector - Instant PHP Upgrades and Automated Refactoring](https://github.com/rectorphp/rector)
+ - [ ] [PHPStan - Bitexpert](https://github.com/bitExpert/phpstan-magento)
+ - [ ] [PHPCS - Magento Coding Standard](https://github.com/magento/magento-coding-standard)	
+
+ 
+Manual testing steps
+ - [ ] Use all features of the site as a customer
+ - [ ] Developer and Internal testing is important
+ - [ ] Test scenarios should be well planned out 
+ - [ ] Perform Cross device/platform testing
 
 # How we got a 99 PageSpeed score (Tjitse Efdé - Vendic)
 **Notes by Jeroen Vermeulen**
