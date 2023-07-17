@@ -371,3 +371,56 @@ Youtube video explaining the steps:
 - Non-profits like Mage-OS NL should facilitate the community
 - Non-profits like Mage-OS NL can help with organising events via marketing, communication, support, sharing experiences, ...
 - Make the community great again!
+
+
+
+# Session: API best practices
+
+**Notes by Lau Bannenberg**
+
+* There doesn't seem to be an existing set of best practices for integrating external APIs in a Magento application. Let's discuss.
+* An API integration has two main parts (could be separate modules, or classes in a module): a client/connection part, and a service/mapper part.
+  * The client takes care of connecting to the API and executing requests. But the rest of the application doesn't directly talk to the client. The client might be so generic PHP that you could drop it into a different framework (Laravel..) mostly unchanged. The client handles infrastructural stuff like authentication, pagination and rate limit backoff/retry.
+  * The service is what the rest of the application interacts with.
+    * It should have an interface so that the rest of the application can expect it to always have the same methods. If something in the external API changes, the service internals change, but the rest of the Magento application doesn't have to change.
+    * The service knows about which endpoints on the API to call for which particular of your business needs.
+    * The service maps responses back into something your application can use. So this is mapping both into framework (Magento) and business (products, orders..) logic.
+* Instead of returning some array taken from the API response, it's much better to return an actual class that implements an interface, and depend on that interface. That way the rest of the application doesn't need to know all that much about the API, and if the API changes, you don't need to go hunt through your application for every bit of code that depends on the array.
+  * Call it {Api}ResultInterface for example
+  * This is a pretty classic value object. In PHP 8.2 it could be a readonly class, but for backward compatibility that's maybe not ideal.
+  * By defining an interface, it becomes easier to later switch to maybe an entirely different API for the data you need. The interface stays the same so the rest of your application doesn't need to change. You just need to change how you initialize your value object to map the new style data to the standard format.
+* Use return types
+  * Avoid mixed return types like array|string to return data or a reason why the call failed; that forces the calling code to check the data type of the returned value and just creates ugly code and bugs.
+  * Nullable return types such as ?ApiResult are somewhat acceptable because PHP has good syntax for those like '??'.
+  * By explicitly listing return types on your service methods, calling code knows what to expect and your static analyzer can warn you that you might get a null.
+  * Throwing exceptions for failures is better than mixed return types. Try/Catch for specific exceptions can still be clean code. Put the necessary "throws" docstrings on your code to help the IDE.
+  * Alternatively, you could also have a FailureResult that still obeys your general ApiResultInterface. Then you force the calling code to interrogate every Result about its status though.
+  * If you're trying to get some sort of collection from the API, one way of dealing with failure is to return an empty collection, but that's still the right type, to allow graceful failure. But this risks hiding the failure.
+  * There's no universal answer here, consider the tradeoffs for your project.
+* You should validate data coming back from the API. Who knows what's in there.
+  * Data could be corrupted
+  * It could be empty (your query is fine, but nothing matches it, or you've reached the end of a paginated collection)
+  * It could be malicious. You're not just saving stuff to your DB without checking right?
+  * The format or type could have changed (yeah, it's an API, that *shouldn't* happen, but...)
+  * If you use validator classes to validate specific data types ("Dutch post code") you might be able to DI them in and reuse them in multiple projects
+* You should not rely on the API connection always working
+  * The other end might be down
+  * Your credentials don't work anymore
+  * You're rate-limited
+  * It's slower than expected
+  * Always plan to fail gracefully
+* Take a really long hard look at how critical this API call is. Does it really need to be blocking the execution of your main task (lots of things phoning home when you log into admin panel, causing endless loading spinning... ; marketing API calls breaking customer order placement)?
+  * Make things asynchronous if you can; kick side tasks into a queue
+  * If the API call is not that important, give it a short timeout and try again next opportunity
+  * A call failing should never break your application
+  * Short timeouts and strictly limited retry is better than trying too hard
+* Observers/plugins should not do API calls, and absolutely no lengthy ones. See if you can put something in a queue instead.
+* More things can be made asynchronous and optimistic than you might be used to. Amazon just registers "you placed an order" and later goes to figure out if they really have enough stock for everyone that was ordering at the same time, and sends an apology if it doesn't work.
+  * Asynchronous order placement is more and more possible in Magento+. Adyen is working on some exciting stuff.
+* Throwing exceptions is okay, but they should be specific.
+  * Use meaningful exception types and messages. No "Something went wrong" generic \Exception. Throwing a \ApiClient\ApiTimedOutException("Timed out after 10 seconds") is much more meaningful.
+  * Using specific (custom) exception types enables catching specific exceptions you know how to handle.
+* Logging is important but must be done carefully
+  * Include all the information you need to actually diagnose an issue. Not "Could not find the product" but "Could not find product with ID X".
+  * But must not be indiscriminate. Don't dump the entire response because it might include sensitive data (auth, personal information).
+  * If you really have to, you can, but not on production. And if you have to on production, you should set up good filters to remove PI data. But it's hard to know for sure you covered every possibility. This is why Adyen has been removing a lot of logging actually.
